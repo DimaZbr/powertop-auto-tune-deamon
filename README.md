@@ -30,4 +30,4 @@ To ensure the system “sees” the changes and applies them every time it start
   ```bash
   sudo systemctl start powertop.service
   ```
-Sometimes powertop --auto-tune can cause a USB mouse to stop working (it freezes and becomes unresponsive when waking up). If you encounter this issue, you can add an exception for USB devices to ExecStart by uncommenting or add the following line in the file in [Service] group: `ExecStartPost=/bin/sh -c 'for i in /sys/bus/usb/devices/*/power/control; do echo "on" > "$i"; done'`
+Sometimes powertop --auto-tune can cause a USB mouse to stop working (it freezes and becomes unresponsive when waking up). If you encounter this issue, you can add an exception for USB devices to ExecStart by uncommenting or add the following line in the file in `[Service]` group: `ExecStartPost=/bin/sh -c 'for i in /sys/bus/usb/devices/*/power/control; do echo "on" > "$i"; done'`
