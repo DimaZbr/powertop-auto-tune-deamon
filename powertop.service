@@ -5,6 +5,7 @@ Description=Powertop tunings
 Type=oneshot
 ExecStart=/usr/bin/powertop --auto-tune
 RemainAfterExit=yes
+#ExecStartPost=/bin/sh -c 'for i in /sys/bus/usb/devices/*/power/control; do echo "on" > "$i"; done'
 
 [Install]
 WantedBy=multi-user.target
